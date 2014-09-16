@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="movieApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Home Page</title>
+
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/angular-route.js"></script>
+	<script type="text/javascript" src="js/angular-resource.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
+	<script type="text/javascript" src="js/services.js"></script>
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+<!-- The title and search bar. -->
+		<header class="row">
+			<h1 class="col-md-6">Movie</h1>
+			<form class="navbar-form navbar-right col-md-6" role="search">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search movie">
+		        </div>
+		        <button type="submit" class="btn btn-default">Submit</button>
+	     	</form>
+		</header>
+		<div class="row">
+<!-- Sidebar -->
+			<div class="col-md-2" ng-controller="sideBarCtrl">
+				List of categories
+				<ul>
+					<li ng-repeat="category in categories">
+						<a href="{{category.url}}">{{category.name}}</a>
+					</li>
+				</ul>
+			</div>
+<!-- Main Page and Search -->
+			<div class="col-md-10" ng-view>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
