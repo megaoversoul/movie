@@ -3,7 +3,7 @@ movieApp.controller('sideBarCtrl',['$scope','Categories', function($scope, Categ
 	$scope.categories = Categories.allCategories;
 }]);
 
-movieApp.controller('MainCtrl',['$scope', 'Api', function($scope, Api){
+movieApp.controller('MovieCtrl',['$scope', 'Api', function($scope, Api){
 	$scope.query = "";
 	$scope.movies = [];
 	$scope.movie = {};
@@ -24,6 +24,31 @@ movieApp.controller('MainCtrl',['$scope', 'Api', function($scope, Api){
 	};
 	$scope.setMovie = function(movie){
 		$scope.movie = movie;
+	};
+}]);
+movieApp.controller('MainCtrl',['$scope', function($scope){
+}]);
+movieApp.controller('ActorCtrl',['$scope', 'Api', function($scope, Api){
+	$scope.query = "";
+	$scope.actors = [];
+	$scope.actor = {};
+	$scope.searchPerson = function(){
+		Api.MDB.searchPerson({query: $scope.query},
+			function(response){
+				if(response.results.length > 1){
+					// This means there are more than one item that matches the query
+					$scope.actors = response.results;
+					jQuery("#results").modal('show');
+				}else{
+					$scope.actor = response.results[0];
+				}
+			}, 
+			function(){
+
+			});
+	};
+	$scope.setActor = function(actor){
+		$scope.actor = actor;
 	};
 }]);
 movieApp.controller('ErrorCtrl',['$scope', function($scope){

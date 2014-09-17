@@ -1,26 +1,26 @@
 movieApp.factory('Categories',[function(){
 	var categories = {};
 	categories.allCategories =[
-		{url:"#", name: "Action"},
-		{url:"#", name: "Adventure"},
-		{url:"#", name: "Animation"},
-		{url:"#", name: "Comedy"},
-		{url:"#", name: "Crime"},
-		{url:"#", name: "Documentary"},
-		{url:"#", name: "Drama"},
-		{url:"#", name: "Family"},
-		{url:"#", name: "Fantasy"},
-		{url:"#", name: "Foreign"},
-		{url:"#", name: "History"},
-		{url:"#", name: "Horror"},
-		{url:"#", name: "Music"},
-		{url:"#", name: "Mystery"},
-		{url:"#", name: "Romance"},
-		{url:"#", name: "Science Fiction"},
-		{url:"#", name: "TV movie"},
-		{url:"#", name: "Thriller"},
-		{url:"#", name: "War"},
-		{url:"#", name: "Western"}
+		{url:"#/error.html", name: "Action"},
+		{url:"#/error.html", name: "Adventure"},
+		{url:"#/error.html", name: "Animation"},
+		{url:"#/error.html", name: "Comedy"},
+		{url:"#/error.html", name: "Crime"},
+		{url:"#/error.html", name: "Documentary"},
+		{url:"#/error.html", name: "Drama"},
+		{url:"#/error.html", name: "Family"},
+		{url:"#/error.html", name: "Fantasy"},
+		{url:"#/error.html", name: "Foreign"},
+		{url:"#/error.html", name: "History"},
+		{url:"#/error.html", name: "Horror"},
+		{url:"#/error.html", name: "Music"},
+		{url:"#/error.html", name: "Mystery"},
+		{url:"#/error.html", name: "Romance"},
+		{url:"#/error.html", name: "Science Fiction"},
+		{url:"#/error.html", name: "TV movie"},
+		{url:"#/error.html", name: "Thriller"},
+		{url:"#/error.html", name: "War"},
+		{url:"#/error.html", name: "Western"}
 	];
 	return categories;
 }]);

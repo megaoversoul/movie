@@ -1,0 +1,51 @@
+<input type="text" size="83" placeholder="Search Actors" ng-model="query"> &nbsp;
+<button type="button" ng-click="searchPerson()" class="btn btn-primary">Search</button>
+<p></p>
+<div class="modal fade" id="results">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+        <h4 class="modal-title">Results</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+        	<thead>
+        		<tr>
+                	<th></th>
+	        		<th>Name</th>
+	        	</tr>
+        	</thead>
+			<tbody>
+				<tr ng-repeat="a in actors">
+                	<td><img src="http://image.tmdb.org/t/p/w500/{{a.profile_path}}" alt="{{a.profile_path}}"  height="75" width="50"></td>
+					<td>{{a.name}}</td>
+					<td>
+						<a ng-href="" ng-click="setActor(a)" class="btn btn-success" data-dismiss="modal">Select</a>
+					</td>
+				</tr>
+			</tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Go Back</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<table>
+    <tr>
+  		<td>
+  	 		<a href="http://image.tmdb.org/t/p/w500/{{actor.profile_path}}">
+            	<img src="http://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="{{actor.profile_path}}"  height="225" width="150">
+            </a>
+  		</td>
+		<td>
+			&nbsp;&nbsp;<label for="title">Name:</label>
+		</td>
+		<td>
+			<span id="title">{{actor.name}}</span>
+		</td>
+    </tr>
+</table>
