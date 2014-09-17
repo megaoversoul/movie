@@ -1,4 +1,4 @@
-<input type="text" size="83" placeholder="Search Actors" ng-model="query"> &nbsp;
+<input type="text" size="83"  ng-enter="searchPerson()" placeholder="Search Actors" ng-model="query"> &nbsp;
 <button type="button" ng-click="searchPerson()" class="btn btn-primary">Search</button>
 <p></p>
 <div class="modal fade" id="results">
@@ -42,10 +42,33 @@
             </a>
   		</td>
 		<td>
-			&nbsp;&nbsp;<label ng-show="actor.name" for="title">Name:</label>
+			<label ng-show="actor.name" for="title">&nbsp;Name:</label>
 		</td>
 		<td>
-			&nbsp;&nbsp;<span id="title"><font size=5><b>{{actor.name}}</b></font></span>
+			<span id="title"><font size=5><b>&nbsp;{{actor.name}}</b></font></span>
 		</td>
     </tr>
 </table>
+
+<hr>
+<div class="col-md-6">
+  <ul>
+    <li ng-repeat="cast in actor.casts | orderBy: 'release_date': 'reverse'">
+      <table align="center" width=160%>
+         <tr>
+         	<td>
+  	 		<a href="http://image.tmdb.org/t/p/w500/{{cast.poster_path}}" ng-show="cast.poster_path">
+            	<img src="http://image.tmdb.org/t/p/w500/{{cast.poster_path}}" alt="{{cast.poster_path}}" height="60" width="40"/>
+            </a>
+  			</td>
+         	<td><label ng-show="cast.title">Title</label></td>
+         	<td><a href="#/error.html">{{cast.title}}</a></td>
+            <td><label ng-show="cast.release_date">Released:</label></td>
+         	<td>{{cast.release_date}}</td>
+          	<td><label ng-show="cast.character">Role:</label></td>
+          	<td>{{cast.character}}</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+</div>

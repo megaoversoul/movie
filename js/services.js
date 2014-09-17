@@ -44,6 +44,14 @@ movieApp.factory('Api',['$resource', function($resource){
 						api_key: "37a32d493192c01a8a1a823228f73e2d"
 					},
 					url: "http://api.themoviedb.org/3/search/person"
+				},
+				movieCredit: {
+					method: "GET",
+					params: {
+						api_key: "37a32d493192c01a8a1a823228f73e2d",
+						id: "@id"
+					},
+					url: "http://api.themoviedb.org/3/person/:id/movie_credits"
 				}
 			})
 	};

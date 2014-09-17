@@ -41,6 +41,7 @@ movieApp.controller('ActorCtrl',['$scope', 'Api', function($scope, Api){
 					jQuery("#results").modal('show');
 				}else{
 					$scope.actor = response.results[0];
+					$scope.loadCredits();
 				}
 			}, 
 			function(){
@@ -49,6 +50,19 @@ movieApp.controller('ActorCtrl',['$scope', 'Api', function($scope, Api){
 	};
 	$scope.setActor = function(actor){
 		$scope.actor = actor;
+		$scope.loadCredits();
+	};
+
+	$scope.loadCredits =  function(){
+		if ($scope.actor) {
+			Api.MDB.movieCredit({id:$scope.actor.id},
+				function(credits){
+					$scope.actor.casts = credits.cast;
+					$scope.actor.crews = credits.crew;
+				}, function(){})
+		} else{
+			alert("no actor loaded");
+		};
 	};
 }]);
 movieApp.controller('ErrorCtrl',['$scope', function($scope){
