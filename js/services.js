@@ -24,3 +24,27 @@ movieApp.factory('Categories',[function(){
 	];
 	return categories;
 }]);
+
+movieApp.factory('Api',['$resource', function($resource){
+	return {
+		MDB: $resource('http://api.themoviedb.org/3/search/:type/:query',{query:'@query', api_key: "37a32d493192c01a8a1a823228f73e2d"},
+			{
+				searchMovie: {
+					method: "GET",
+					params: {
+						query: '@query', 
+						api_key: "37a32d493192c01a8a1a823228f73e2d"
+					},
+					url: "http://api.themoviedb.org/3/search/movie"
+				},
+				searchPerson: {
+					method: "GET",
+					params: {
+						query: '@query',
+						api_key: "37a32d493192c01a8a1a823228f73e2d"
+					},
+					url: "http://api.themoviedb.org/3/search/person"
+				}
+			})
+	};
+}]);

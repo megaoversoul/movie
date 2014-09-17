@@ -1,2 +1,94 @@
 <img src="img/Logo.png" /> another searchbar
-<input type="text" placeholder="Search a movie">
+<input type="text" placeholder="Search a movie" ng-model="query">
+<button type="button" ng-click="searchMovie()" class="btn btn-primary">Search</button>
+
+<hr>
+<h3>Retrived information</h3>
+
+<table>
+	<tr>
+		<td>
+			<label for="title">Title:</label>
+		</td>
+		<td>
+			<span id="title">{{movie.title}}</span>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="release">Release date:</label>
+		</td>
+		<td>
+			<span id="release">{{movie.release_date}}</span>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="popularity">Popularity:</label>
+		</td>
+		<td>
+			<span id="popularity">{{movie.popularity}}</span>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="vote">Vote average:</label>
+		</td>
+		<td>
+			<span id="vote">{{movie.vote_average}}</span>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="count">Vote count:</label>
+		</td>
+		<td>
+			<span id="count">{{movie.vote_count}}</span>
+		</td>
+	</tr>
+    <tr>
+  		<td>
+  	 		<label for="image">image:</label>
+  		</td>
+  		<td>
+  	 		<img src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.poster_path}}"  height="256" width="256">
+  		</td>
+ 	</tr>
+</table>
+
+<div class="modal fade" id="results">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+        <h4 class="modal-title">Results</h4>
+      </div>
+      <div class="modal-body">
+        <p>More than one item matched your criteria</p>
+        <table class="table">
+        	<thead>
+        		<tr>
+	        		<th>Title</th>
+	        		<th>Release date</th>
+	        		<th>Vote average</th>
+	        		<th>Opciones</th>
+	        	</tr>
+        	</thead>
+			<tbody>
+				<tr ng-repeat="m in movies">
+					<td>{{m.title}}</td>
+					<td>{{m.release_date}}</td>
+					<td>{{m.vote_average}}</td>
+					<td>
+						<a ng-href="" ng-click="setMovie(m)" class="btn btn-success" data-dismiss="modal">Pick</a>
+					</td>
+				</tr>
+			</tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
