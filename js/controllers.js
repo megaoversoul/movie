@@ -5,5 +5,6 @@ movieApp.controller('sideBarCtrl',['$scope','Categories', function($scope, Categ
 
 movieApp.controller('MainCtrl',['$scope', function($scope){
 }]);
+
 movieApp.controller('ErrorCtrl',['$scope', function($scope){
 }]);
