@@ -41,20 +41,20 @@
 <table>
     <tr>
   		<td>
-  	 		<a href="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="#/error.html">
+  	 		<a href="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" ng-show="movie.poster_path" alt="#/error.html">
             	<img src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.poster_path}}"  height="225" width="150">
             </a>
   		</td>
 		<td>
-			&nbsp;&nbsp;<label for="title">Title:</label>
+			&nbsp;&nbsp;<label ng-show="movie.title" for="title">Title:</label>
 		</td>
 		<td>
-			<span id="title">{{movie.title}}</span>
+			<span id="title"><font size=5><b>{{movie.title}}</b></font></span>
 		</td>
     </tr>
     <tr>
 		<td>
-			<label for="release">Release date:</label>
+			<label ng-show="movie.release_date" for="release">Release date:</label>
 		</td>
 		<td>
 			<span id="release">{{movie.release_date}}</span>
@@ -62,15 +62,15 @@
 	</tr>
 	<tr>
 		<td>
-			<label for="vote">Rating:</label>
+			<label ng-show="movie.vote_average" for="vote">Rating:</label>
 		</td>
 		<td>
-			<span id="vote">{{movie.vote_average}} out of 10</span>
+			<span ng-show="movie.vote_average" id="vote">{{movie.vote_average}} out of 10</span>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<label for="count">Votes:</label>
+			<label ng-show="movie.vote_count" for="count">Votes:</label>
 		</td>
 		<td>
 			<span id="count">{{movie.vote_count}}</span>
